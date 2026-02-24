@@ -391,25 +391,30 @@ async function showAdminPanel() {
       </div>
       ${entries.length===0
         ? '<p style="text-align:center;color:#7a5c3a;font-size:14px">Geen deelnemers gevonden.</p>'
-        : entries.map(([name,pts])=>`
+        : entries.map(([name,pts],i)=>`
           <div class="admin-player-row">
             <span class="aname">${name}</span>
             <span class="apts">${pts} pt</span>
-            <button class="del-btn" onclick="adminDelete('${name.replace(/'/g,"\\'")}')">🗑 Verwijder</button>
+            <button class="del-btn" data-idx="${i}">🗑 Verwijder</button>
           </div>`).join('')}
       ${entries.length>0?`<button class="del-all-btn" onclick="adminDeleteAll()">🗑 Verwijder alle deelnemers</button>`:''}
       <button class="back-btn" onclick="showNameScreen()">← Terug naar quiz</button>
     </div>`;
-}
 
-window.adminDelete = async function(name) {
-  if (!confirm(`Weet je zeker dat je "${name}" wilt verwijderen?`)) return;
-  const data = await getData();
-  delete data[name];
-  await setData(data);
-  await syncAndRender();
-  showAdminPanel();
-};
+  // Attach delete handlers via data index to avoid name escaping issues
+  document.querySelectorAll('.del-btn[data-idx]').forEach(btn => {
+    const idx = parseInt(btn.getAttribute('data-idx'));
+    const name = entries[idx][0];
+    btn.addEventListener('click', async () => {
+      if (!confirm(`Weet je zeker dat je "${name}" wilt verwijderen?`)) return;
+      const data = await getData();
+      delete data[name];
+      await setData(data);
+      await syncAndRender();
+      showAdminPanel();
+    });
+  });
+}
 
 window.adminDeleteAll = async function() {
   if (!confirm('Weet je zeker dat je ALLE deelnemers wilt verwijderen?')) return;
