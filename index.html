@@ -193,6 +193,7 @@ async function getData() {
     // Filter out internal placeholder keys
     delete record.__empty;
     delete record.reset;
+    delete record.leeg;
     return record;
   } catch(e) { return {}; }
 }
