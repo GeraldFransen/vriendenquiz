@@ -186,6 +186,41 @@
       .card { padding: 24px 18px; }
       .podium-block { width: 68px; }
     }
+
+    /* ADMIN */
+    .admin-link {
+      position: fixed; bottom: 16px; right: 16px;
+      font-size: 11px; color: rgba(59,36,16,0.3); cursor: pointer;
+      text-decoration: none; letter-spacing: 1px;
+    }
+    .admin-link:hover { color: var(--amber); }
+    .admin-screen h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 6px; color: var(--brown); }
+    .admin-screen p { color: #7a5c3a; font-size: 14px; margin-bottom: 20px; }
+    .admin-player-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; background: #fff; border: 1.5px solid rgba(201,125,42,0.2);
+      border-radius: 12px; margin-bottom: 8px; font-size: 14px; font-weight: 600;
+    }
+    .admin-player-row .aname { flex: 1; color: var(--brown); }
+    .admin-player-row .apts { color: var(--amber); margin-right: 12px; }
+    .del-btn {
+      background: var(--red); color: #fff; border: none; border-radius: 50px;
+      padding: 5px 14px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .del-btn:hover { opacity: 0.8; }
+    .del-all-btn {
+      width: 100%; margin-top: 16px; background: var(--brown); color: #fff; border: none;
+      border-radius: 50px; padding: 12px; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .del-all-btn:hover { background: var(--red); }
+    .back-btn {
+      width: 100%; margin-top: 10px; background: transparent; color: var(--brown);
+      border: 2px solid rgba(59,36,16,0.2); border-radius: 50px; padding: 12px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .back-btn:hover { border-color: var(--amber); color: var(--amber); }
   </style>
 </head>
 <body>
@@ -204,6 +239,7 @@
 </div>
 
 <div class="card" id="card"></div>
+<a class="admin-link" onclick="showAdminLogin()">⚙ beheer</a>
 
 <script>
 const SHARED = true;
@@ -548,6 +584,79 @@ window.playAgain = async function() {
   if (syncInterval) clearInterval(syncInterval);
   showNameScreen();
 };
+
+// ── ADMIN ──
+const ADMIN_PASSWORD = 'Vriendenquiz2026';
+
+function showAdminLogin() {
+  if (syncInterval) clearInterval(syncInterval);
+  document.getElementById('scoreboard-panel').style.display = 'none';
+  document.getElementById('card').innerHTML = `
+    <div class="admin-screen" style="text-align:center">
+      <div style="font-size:42px;margin-bottom:12px">🔐</div>
+      <h2>Beheerderspagina</h2>
+      <p>Vul het beheerderswachtwoord in om deelnemers te verwijderen.</p>
+      <input class="name-input" id="admin-pw" type="password" placeholder="Wachtwoord..." autocomplete="off"/>
+      <button class="start-btn" onclick="checkAdminPassword()">Inloggen</button>
+      <button class="back-btn" onclick="showNameScreen()">← Terug naar quiz</button>
+    </div>`;
+  const inp = document.getElementById('admin-pw');
+  inp.focus();
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') checkAdminPassword(); });
+}
+
+async function checkAdminPassword() {
+  const inp = document.getElementById('admin-pw');
+  if (inp.value === ADMIN_PASSWORD) {
+    await showAdminPanel();
+  } else {
+    inp.value = '';
+    inp.style.borderColor = 'var(--red)';
+    inp.placeholder = 'Verkeerd wachtwoord, probeer opnieuw!';
+  }
+}
+
+async function showAdminPanel() {
+  const scores = await loadAllScores();
+  const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  document.getElementById('card').innerHTML = `
+    <div class="admin-screen">
+      <div style="text-align:center;margin-bottom:20px">
+        <div style="font-size:36px;margin-bottom:8px">⚙️</div>
+        <h2>Beheer deelnemers</h2>
+        <p>${entries.length} deelnemer(s) in het scorebord</p>
+      </div>
+      <div id="admin-list">
+        ${entries.length === 0
+          ? '<p style="text-align:center;color:#7a5c3a;font-size:14px">Geen deelnemers gevonden.</p>'
+          : entries.map(([name, pts]) => `
+            <div class="admin-player-row" id="row-${CSS.escape(name)}">
+              <span class="aname">${name}</span>
+              <span class="apts">${pts} pt</span>
+              <button class="del-btn" onclick="deletePlayer('${name.replace(/'/g,"\\'")}')">🗑 Verwijder</button>
+            </div>`).join('')}
+      </div>
+      ${entries.length > 0 ? `<button class="del-all-btn" onclick="deleteAllPlayers()">🗑 Verwijder alle deelnemers</button>` : ''}
+      <button class="back-btn" onclick="showNameScreen()">← Terug naar quiz</button>
+    </div>`;
+}
+
+window.deletePlayer = async function(name) {
+  if (!confirm(`Weet je zeker dat je "${name}" wilt verwijderen?`)) return;
+  try { await window.storage.delete('score:' + name, SHARED); } catch(e) {}
+  await showAdminPanel();
+};
+
+window.deleteAllPlayers = async function() {
+  if (!confirm('Weet je zeker dat je ALLE deelnemers wilt verwijderen?')) return;
+  const scores = await loadAllScores();
+  for (const name of Object.keys(scores)) {
+    try { await window.storage.delete('score:' + name, SHARED); } catch(e) {}
+  }
+  await showAdminPanel();
+};
+
+window.showAdminLogin = showAdminLogin;
 
 // ── INIT ──
 showNameScreen();
