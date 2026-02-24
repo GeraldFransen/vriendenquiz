@@ -32,107 +32,48 @@
       align-items: center;
       padding: 40px 20px 60px;
     }
-
     .header { text-align: center; margin-bottom: 32px; animation: fadeDown 0.7s ease both; }
-    .header .badge {
-      display: inline-block; background: var(--amber); color: #fff;
-      font-size: 11px; font-weight: 600; letter-spacing: 3px;
-      text-transform: uppercase; padding: 5px 16px; border-radius: 50px; margin-bottom: 14px;
-    }
-    .header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 6vw, 58px); font-weight: 900; line-height: 1.05; color: var(--brown);
-    }
+    .header .badge { display: inline-block; background: var(--amber); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; padding: 5px 16px; border-radius: 50px; margin-bottom: 14px; }
+    .header h1 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 6vw, 58px); font-weight: 900; line-height: 1.05; color: var(--brown); }
     .header h1 span { color: var(--amber); }
     .header p { margin-top: 10px; font-size: 15px; color: #7a5c3a; }
     .beer-row { font-size: 26px; margin-top: 10px; letter-spacing: 4px; }
-
-    .card {
-      background: var(--card-bg); border-radius: 24px; box-shadow: var(--shadow);
-      border: 1.5px solid rgba(201,125,42,0.18); padding: 36px 40px;
-      max-width: 620px; width: 100%; animation: fadeUp 0.5s ease both;
-    }
-
-    /* NAME ENTRY */
+    .card { background: var(--card-bg); border-radius: 24px; box-shadow: var(--shadow); border: 1.5px solid rgba(201,125,42,0.18); padding: 36px 40px; max-width: 620px; width: 100%; animation: fadeUp 0.5s ease both; }
     .name-screen { text-align: center; }
     .name-screen h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 8px; color: var(--brown); }
     .name-screen p { color: #7a5c3a; font-size: 14px; margin-bottom: 24px; line-height: 1.6; }
-    .name-input {
-      width: 100%; padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 16px;
-      border: 2px solid rgba(201,125,42,0.3); border-radius: 14px; background: #fff;
-      color: var(--brown); outline: none; margin-bottom: 14px; transition: border-color 0.2s;
-    }
+    .name-input { width: 100%; padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 16px; border: 2px solid rgba(201,125,42,0.3); border-radius: 14px; background: #fff; color: var(--brown); outline: none; margin-bottom: 14px; transition: border-color 0.2s; }
     .name-input:focus { border-color: var(--amber); }
-    .start-btn {
-      width: 100%; background: var(--brown); color: var(--cream); border: none;
-      border-radius: 50px; padding: 14px; font-family: 'DM Sans', sans-serif;
-      font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;
-    }
+    .start-btn { width: 100%; background: var(--brown); color: var(--cream); border: none; border-radius: 50px; padding: 14px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
     .start-btn:hover { background: var(--amber); }
-
-    /* PROGRESS */
     .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
     .progress-meta .qnum { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); }
     .progress-meta .cat-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: var(--green); color: #fff; padding: 3px 12px; border-radius: 50px; }
     .progress-track { height: 5px; background: var(--amber-pale); border-radius: 10px; margin-bottom: 28px; overflow: hidden; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-light)); border-radius: 10px; transition: width 0.4s ease; }
-
-    /* QUESTION */
-    .question-text {
-      font-family: 'Playfair Display', serif; font-size: clamp(19px, 3.5vw, 24px);
-      font-weight: 700; color: var(--brown); margin-bottom: 24px; line-height: 1.4;
-    }
-
-    /* OPTIONS */
+    .question-text { font-family: 'Playfair Display', serif; font-size: clamp(19px, 3.5vw, 24px); font-weight: 700; color: var(--brown); margin-bottom: 24px; line-height: 1.4; }
     .options { display: grid; gap: 10px; }
-    .opt-btn {
-      background: #fff; border: 2px solid rgba(201,125,42,0.22); border-radius: 14px;
-      padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
-      color: var(--brown); text-align: left; cursor: pointer; transition: all 0.18s;
-      display: flex; align-items: center; gap: 12px; width: 100%;
-    }
+    .opt-btn { background: #fff; border: 2px solid rgba(201,125,42,0.22); border-radius: 14px; padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; color: var(--brown); text-align: left; cursor: pointer; transition: all 0.18s; display: flex; align-items: center; gap: 12px; width: 100%; }
     .opt-btn:hover:not(:disabled) { border-color: var(--amber); background: var(--amber-pale); transform: translateX(4px); }
-    .opt-letter {
-      width: 28px; height: 28px; border-radius: 50%; background: var(--amber-pale); color: var(--amber);
-      font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all 0.18s;
-    }
+    .opt-letter { width: 28px; height: 28px; border-radius: 50%; background: var(--amber-pale); color: var(--amber); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .opt-btn.correct { border-color: var(--green-light); background: #edf6ed; color: var(--green); }
     .opt-btn.correct .opt-letter { background: var(--green-light); color: #fff; }
     .opt-btn.wrong { border-color: var(--red); background: #fbeaea; color: var(--red); }
     .opt-btn.wrong .opt-letter { background: var(--red); color: #fff; }
-
-    /* REVEAL */
-    .reveal-box {
-      margin-top: 18px; padding: 13px 16px; background: var(--amber-pale);
-      border-left: 4px solid var(--amber); border-radius: 10px; font-size: 14px;
-      color: var(--brown); line-height: 1.6; display: none;
-    }
+    .reveal-box { margin-top: 18px; padding: 13px 16px; background: var(--amber-pale); border-left: 4px solid var(--amber); border-radius: 10px; font-size: 14px; color: var(--brown); line-height: 1.6; display: none; }
     .reveal-box.show { display: block; animation: fadeUp 0.3s ease; }
     .reveal-box strong { color: var(--amber); }
-
-    /* NEXT */
     .next-wrap { margin-top: 20px; display: none; justify-content: space-between; align-items: center; }
     .next-wrap.show { display: flex; }
     .score-badge { background: var(--amber-pale); border: 1.5px solid var(--amber); border-radius: 50px; padding: 6px 16px; font-size: 13px; font-weight: 700; color: var(--amber); }
-    .next-btn {
-      background: var(--brown); color: var(--cream); border: none; border-radius: 50px;
-      padding: 12px 30px; font-family: 'DM Sans', sans-serif; font-size: 15px;
-      font-weight: 600; cursor: pointer; transition: all 0.2s;
-    }
+    .next-btn { background: var(--brown); color: var(--cream); border: none; border-radius: 50px; padding: 12px 30px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
     .next-btn:hover { background: var(--amber); }
-
-    /* SCOREBOARD */
     .scoreboard-panel { max-width: 620px; width: 100%; margin-bottom: 20px; animation: fadeUp 0.5s 0.1s ease both; }
     .sync-bar { text-align: center; font-size: 12px; color: #7a5c3a; margin-bottom: 10px; }
     .sync-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); margin-right: 6px; animation: pulse 2s infinite; }
     .scoreboard-title { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; text-align: center; }
     .scoreboard-list { display: flex; flex-direction: column; gap: 6px; }
-    .score-row {
-      background: var(--card-bg); border: 1.5px solid rgba(201,125,42,0.18); border-radius: 12px;
-      padding: 10px 16px; display: flex; align-items: center; gap: 10px;
-      font-size: 14px; font-weight: 600; box-shadow: 0 2px 8px rgba(59,36,16,0.06); transition: all 0.3s;
-    }
+    .score-row { background: var(--card-bg); border: 1.5px solid rgba(201,125,42,0.18); border-radius: 12px; padding: 10px 16px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; box-shadow: 0 2px 8px rgba(59,36,16,0.06); transition: all 0.3s; }
     .score-row.leader { border-color: var(--amber); background: var(--amber-pale); }
     .score-row .rank { color: var(--amber); font-weight: 700; width: 26px; text-align: center; font-size: 14px; }
     .score-row .sname { flex: 1; color: var(--brown); }
@@ -140,26 +81,17 @@
     .score-row .progress-mini { flex: 2; height: 6px; background: rgba(201,125,42,0.15); border-radius: 10px; overflow: hidden; }
     .score-row .progress-mini-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-light)); border-radius: 10px; transition: width 0.5s ease; }
     .score-row .spts { font-weight: 700; color: var(--green); font-size: 15px; min-width: 28px; text-align: right; }
-
-    /* RESULT */
     .result { text-align: center; padding: 10px 0; }
     .result .trophy { font-size: 68px; margin-bottom: 10px; }
     .result h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--brown); margin-bottom: 6px; }
     .result .subtitle { color: #7a5c3a; margin-bottom: 20px; font-size: 15px; }
-    .your-score-box {
-      background: var(--amber-pale); border: 2px solid var(--amber); border-radius: 16px;
-      padding: 16px; margin-bottom: 22px;
-    }
+    .your-score-box { background: var(--amber-pale); border: 2px solid var(--amber); border-radius: 16px; padding: 16px; margin-bottom: 22px; }
     .your-score-box p { font-size: 14px; color: #7a5c3a; margin-bottom: 4px; }
     .your-score-box .big { font-size: 42px; font-weight: 900; color: var(--amber); }
     .your-score-box .label { font-size: 16px; font-weight: 600; color: var(--brown); margin-top: 4px; }
     .podium { display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-bottom: 22px; }
     .podium-item { text-align: center; }
-    .podium-block {
-      width: 84px; background: var(--amber-pale); border: 2px solid var(--amber);
-      border-radius: 12px 12px 0 0; display: flex; align-items: flex-end;
-      justify-content: center; padding-bottom: 8px; font-size: 22px;
-    }
+    .podium-block { width: 84px; background: var(--amber-pale); border: 2px solid var(--amber); border-radius: 12px 12px 0 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; font-size: 22px; }
     .podium-item:nth-child(1) .podium-block { height: 75px; }
     .podium-item:nth-child(2) .podium-block { height: 110px; background: var(--amber); border-color: var(--brown); }
     .podium-item:nth-child(3) .podium-block { height: 55px; }
@@ -171,56 +103,23 @@
     .rank-row .rname { flex: 1; font-weight: 500; }
     .rank-row .rname.you { color: var(--amber); font-weight: 700; }
     .rank-row .rpts { font-weight: 700; color: var(--green); }
-    .play-again-btn {
-      background: var(--amber); color: #fff; border: none; border-radius: 50px;
-      padding: 13px 36px; font-family: 'DM Sans', sans-serif; font-size: 15px;
-      font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 4px;
-    }
+    .play-again-btn { background: var(--amber); color: #fff; border: none; border-radius: 50px; padding: 13px 36px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 4px; }
     .play-again-btn:hover { background: var(--brown); }
-
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 480px) {
-      .card { padding: 24px 18px; }
-      .podium-block { width: 68px; }
-    }
-
-    /* ADMIN */
-    .admin-link {
-      position: fixed; bottom: 16px; right: 16px;
-      font-size: 11px; color: rgba(59,36,16,0.3); cursor: pointer;
-      text-decoration: none; letter-spacing: 1px;
-    }
-    .admin-link:hover { color: var(--amber); }
     .admin-screen h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 6px; color: var(--brown); }
     .admin-screen p { color: #7a5c3a; font-size: 14px; margin-bottom: 20px; }
-    .admin-player-row {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; background: #fff; border: 1.5px solid rgba(201,125,42,0.2);
-      border-radius: 12px; margin-bottom: 8px; font-size: 14px; font-weight: 600;
-    }
+    .admin-player-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #fff; border: 1.5px solid rgba(201,125,42,0.2); border-radius: 12px; margin-bottom: 8px; font-size: 14px; font-weight: 600; }
     .admin-player-row .aname { flex: 1; color: var(--brown); }
     .admin-player-row .apts { color: var(--amber); margin-right: 12px; }
-    .del-btn {
-      background: var(--red); color: #fff; border: none; border-radius: 50px;
-      padding: 5px 14px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;
-    }
+    .del-btn { background: var(--red); color: #fff; border: none; border-radius: 50px; padding: 5px 14px; font-size: 12px; font-weight: 600; cursor: pointer; }
     .del-btn:hover { opacity: 0.8; }
-    .del-all-btn {
-      width: 100%; margin-top: 16px; background: var(--brown); color: #fff; border: none;
-      border-radius: 50px; padding: 12px; font-family: 'DM Sans', sans-serif;
-      font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;
-    }
+    .del-all-btn { width: 100%; margin-top: 16px; background: var(--brown); color: #fff; border: none; border-radius: 50px; padding: 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
     .del-all-btn:hover { background: var(--red); }
-    .back-btn {
-      width: 100%; margin-top: 10px; background: transparent; color: var(--brown);
-      border: 2px solid rgba(59,36,16,0.2); border-radius: 50px; padding: 12px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-      cursor: pointer; transition: all 0.2s;
-    }
+    .back-btn { width: 100%; margin-top: 10px; background: transparent; color: var(--brown); border: 2px solid rgba(59,36,16,0.2); border-radius: 50px; padding: 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
     .back-btn:hover { border-color: var(--amber); color: var(--amber); }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:480px) { .card { padding:24px 18px; } .podium-block { width:68px; } }
   </style>
 </head>
 <body>
@@ -233,263 +132,141 @@
 </div>
 
 <div class="scoreboard-panel" id="scoreboard-panel">
-  <div class="sync-bar"><span class="sync-dot"></span>Live scorebord — wordt elke 3 seconden bijgewerkt</div>
+  <div class="sync-bar"><span class="sync-dot"></span>Live scorebord — wordt elke 5 seconden bijgewerkt</div>
   <div class="scoreboard-title">🏆 Ranglijst</div>
-  <div class="scoreboard-list" id="scoreboard-list"><p style="text-align:center;color:#7a5c3a;font-size:13px;padding:10px 0">Nog geen deelnemers — vul je naam in en start de quiz!</p></div>
+  <div class="scoreboard-list" id="scoreboard-list">
+    <p style="text-align:center;color:#7a5c3a;font-size:13px;padding:10px 0">Nog geen deelnemers — vul je naam in en start de quiz!</p>
+  </div>
 </div>
 
 <div class="card" id="card"></div>
 
 <script>
-const SHARED = true;
+const JSONBIN_KEY = '$2a$10$8d1DgGLP6FyNxoFuJOTPROYi8dHVV1O34OEImt3y1xxIHdc.DAo3.';
+const BIN_BASE   = 'https://api.jsonbin.io/v3/b';
+const ADMIN_PW   = 'Vriendenquiz2026';
+let BIN_ID = localStorage.getItem('vwq_bin_id') || null;
+
+let playerName = '', current = 0, answered = false, playerScore = 0, syncInterval = null;
+
 const questions = [
-  {
-    cat: "Locaties",
-    q: "In welk jaar ging het vriendenweekend voor het EERST niet door?",
-    options: ["2018", "2019", "2020", "2021"],
-    answer: 2,
-    fun: "Het weekend van 20-22 maart 2020 in Uden werd gecanceld vanwege de coronacrisis. Zo dichtbij, en toch niet! 😷"
-  },
-  {
-    cat: "Locaties",
-    q: "In welk jaar trokken jullie voor het eerst naar het buitenland voor het vriendenweekend?",
-    options: ["2010", "2011", "2012", "2013"],
-    answer: 0,
-    fun: "Van 2010 t/m 2012 waren jullie drie keer op rij in de Ardennen! 🇧🇪"
-  },
-  {
-    cat: "Locaties",
-    q: "Welke locatie was in 2023?",
-    options: ["Busselaar Sevenum", "Hof van Ulvend Noorbeek", "Buitengewoon Brabant Nistelrode", "De Elset Mechelen"],
-    answer: 1,
-    fun: "Hof van Ulvend in Noorbeek, 24-26 maart 2023. Lekker zuidelijk! 🌿"
-  },
-  {
-    cat: "Locaties",
-    q: "Wat was de locatie van het meest recente weekend in 2025?",
-    options: ["Busselaar Sevenum", "Hof van Ulvend Noorbeek", "Cornelishof Roermond", "Everbosch II Groesbeek"],
-    answer: 2,
-    fun: "Cornelishof in Roermond, 14-16 maart 2025. Weer lekker in Limburg! 🏡"
-  },
-  {
-    cat: "Locaties",
-    q: "In welke provincie ligt Mechelen (L), de locatie van De Elset in 2018?",
-    options: ["Noord-Brabant", "Gelderland", "Limburg", "Zeeland"],
-    answer: 2,
-    fun: "De Elset in Mechelen (L) — de L staat voor Limburg! 🍺"
-  },
-  {
-    cat: "Locaties",
-    q: "In welk jaar was het weekend in Groesbeek?",
-    options: ["2016", "2017", "2018", "2019"],
-    answer: 3,
-    fun: "Everbosch II in Groesbeek, 15-17 maart 2019. Mooi in de heuvels van Gelderland! 🌳"
-  },
-  {
-    cat: "Locaties",
-    q: "Hoe lang bestaat dit vriendenweekend al? (t/m 2025, inclusief het gecancelde jaar)",
-    options: ["12 jaar", "14 jaar", "16 jaar", "18 jaar"],
-    answer: 2,
-    fun: "Van 2010 t/m 2025 = 16 edities (inclusief het gecancelde 2020)! Dat is een echte traditie! 🏆"
-  },
-  {
-    cat: "Tradities",
-    q: "Wat staat er altijd op het menu als er samen gekookt wordt?",
-    options: ["Stamppot", "Spaghetti", "BBQ", "Chili con carne"],
-    answer: 1,
-    fun: "De klassieke vriendenweekend-spaghetti! 🍝 Niemand weet precies waarom, maar het smaakt altijd het lekkerst met z'n allen."
-  },
-  {
-    cat: "Tradities",
-    q: "In welk jaar werd er een bierproeverij gedaan?",
-    options: ["2014", "2015", "2016", "2017"],
-    answer: 2,
-    fun: "In 2016 op de Veluwe was er een bierproeverij. Want wandelen en daarna bier proeven gaat hand in hand! 🍺"
-  },
-  {
-    cat: "Tradities",
-    q: "Wat doen jullie overdag tijdens het weekend?",
-    options: ["Fietsen", "Wandelen", "Kajakken", "Golfen"],
-    answer: 1,
-    fun: "Wandelen! 🥾 Perfecte manier om de spaghetti en het bier van de vorige avond te verteren."
-  },
-  {
-    cat: "Tradities",
-    q: "In welke maand vindt het vriendenweekend altijd plaats?",
-    options: ["Februari", "Maart", "April", "Mei"],
-    answer: 1,
-    fun: "Altijd in maart! ☁️ Soms koud, soms nat, maar altijd gezellig."
-  },
-  {
-    cat: "Tradities",
-    q: "Wat wordt er 's avonds in grote hoeveelheden gedronken?",
-    options: ["Wijn", "Rosé", "Bier", "Cocktails"],
-    answer: 2,
-    fun: "Bier natuurlijk! 🍺🍺🍺 En misschien nog wat meer bier. En dan nog één biertje."
-  },
-  {
-    cat: "Locaties",
-    q: "In welk jaar was het weekend in Dongen?",
-    options: ["2015", "2016", "2017", "2018"],
-    answer: 2,
-    fun: "'t Volderke in Dongen, 10-12 maart 2017. Noord-Brabant op z'n best! 🌾"
-  },
-  {
-    cat: "Locaties",
-    q: "Welke van deze locaties ligt het meest in het zuiden van Nederland?",
-    options: ["Groesbeek", "Noorbeek", "Sevenum", "Nistelrode"],
-    answer: 1,
-    fun: "Noorbeek in Limburg ligt het meest zuidelijk — vlakbij de Belgische grens! 🗺️"
-  },
-  {
-    cat: "Tradities",
-    q: "Wat was het eerste jaar van het vriendenweekend?",
-    options: ["2008", "2009", "2010", "2011"],
-    answer: 2,
-    fun: "2010 was het allereerste vriendenweekend — in de Ardennen! En daarna nog twee keer terug. 🇧🇪"
-  },
-  {
-    cat: "Locaties",
-    q: "In welk jaar was het weekend in Heerlen?",
-    options: ["2011", "2012", "2013", "2014"],
-    answer: 2,
-    fun: "2013 in Heerlen — ook lekker Limburgs! 🌷"
-  },
-  {
-    cat: "Locaties",
-    q: "Welke locatie heeft 'Buitengewoon' in de naam?",
-    options: ["Groesbeek 2019", "Nistelrode 2022", "Dongen 2017", "Sevenum 2024"],
-    answer: 1,
-    fun: "Buitengewoon Brabant in Nistelrode, 11-13 maart 2022. Buitengewoon gezellig! 🏡"
-  },
-  {
-    cat: "Locaties",
-    q: "Hoeveel keer zijn jullie in de Ardennen geweest?",
-    options: ["1 keer", "2 keer", "3 keer", "4 keer"],
-    answer: 2,
-    fun: "Drie keer: 2010, 2011 en 2012! Daarna kozen jullie voor locaties in Nederland. 🇧🇪➡️🇳🇱"
-  },
-  {
-    cat: "Locaties",
-    q: "In welk jaar was het weekend op de Veluwe?",
-    options: ["2014", "2015", "2016", "2017"],
-    answer: 2,
-    fun: "2016 op de Veluwe — én met bierproeverij! 🌲🍺"
-  },
-  {
-    cat: "Locaties",
-    q: "In welke stad ligt Cornelishof, de locatie van 2025?",
-    options: ["Venlo", "Maastricht", "Roermond", "Sittard"],
-    answer: 2,
-    fun: "Cornelishof in Roermond, 14-16 maart 2025. Gezellig aan de Maas! 🌊"
-  },
-  {
-    cat: "Tradities",
-    q: "Op welke dagen van de week vindt het weekend altijd plaats?",
-    options: ["Donderdag t/m zaterdag", "Vrijdag t/m zondag", "Zaterdag t/m maandag", "Woensdag t/m vrijdag"],
-    answer: 1,
-    fun: "Altijd vrijdag tot zondag — het perfecte lange weekend! 🎒"
-  }
+  { cat:"Locaties", q:"In welk jaar ging het vriendenweekend voor het EERST niet door?", options:["2018","2019","2020","2021"], answer:2, fun:"Het weekend van 20-22 maart 2020 in Uden werd gecanceld vanwege de coronacrisis. Zo dichtbij, en toch niet! 😷" },
+  { cat:"Locaties", q:"In welk jaar trokken jullie voor het eerst naar het buitenland voor het vriendenweekend?", options:["2010","2011","2012","2013"], answer:0, fun:"Van 2010 t/m 2012 waren jullie drie keer op rij in de Ardennen! 🇧🇪" },
+  { cat:"Locaties", q:"Welke locatie was in 2023?", options:["Busselaar Sevenum","Hof van Ulvend Noorbeek","Buitengewoon Brabant Nistelrode","De Elset Mechelen"], answer:1, fun:"Hof van Ulvend in Noorbeek, 24-26 maart 2023. Lekker zuidelijk! 🌿" },
+  { cat:"Locaties", q:"Wat was de locatie van het meest recente weekend in 2025?", options:["Busselaar Sevenum","Hof van Ulvend Noorbeek","Cornelishof Roermond","Everbosch II Groesbeek"], answer:2, fun:"Cornelishof in Roermond, 14-16 maart 2025. Weer lekker in Limburg! 🏡" },
+  { cat:"Locaties", q:"In welke provincie ligt Mechelen (L), de locatie van De Elset in 2018?", options:["Noord-Brabant","Gelderland","Limburg","Zeeland"], answer:2, fun:"De Elset in Mechelen (L) — de L staat voor Limburg! 🍺" },
+  { cat:"Locaties", q:"In welk jaar was het weekend in Groesbeek?", options:["2016","2017","2018","2019"], answer:3, fun:"Everbosch II in Groesbeek, 15-17 maart 2019. Mooi in de heuvels van Gelderland! 🌳" },
+  { cat:"Locaties", q:"Hoe lang bestaat dit vriendenweekend al? (t/m 2025, inclusief het gecancelde jaar)", options:["12 jaar","14 jaar","16 jaar","18 jaar"], answer:2, fun:"Van 2010 t/m 2025 = 16 edities (inclusief het gecancelde 2020)! Dat is een echte traditie! 🏆" },
+  { cat:"Tradities", q:"Wat staat er altijd op het menu als er samen gekookt wordt?", options:["Stamppot","Spaghetti","BBQ","Chili con carne"], answer:1, fun:"De klassieke vriendenweekend-spaghetti! 🍝 Niemand weet precies waarom, maar het smaakt altijd het lekkerst met z'n allen." },
+  { cat:"Tradities", q:"In welk jaar werd er een bierproeverij gedaan?", options:["2014","2015","2016","2017"], answer:2, fun:"In 2016 op de Veluwe was er een bierproeverij. Want wandelen en daarna bier proeven gaat hand in hand! 🍺" },
+  { cat:"Tradities", q:"Wat doen jullie overdag tijdens het weekend?", options:["Fietsen","Wandelen","Kajakken","Golfen"], answer:1, fun:"Wandelen! 🥾 Perfecte manier om de spaghetti en het bier van de vorige avond te verteren." },
+  { cat:"Tradities", q:"In welke maand vindt het vriendenweekend altijd plaats?", options:["Februari","Maart","April","Mei"], answer:1, fun:"Altijd in maart! ☁️ Soms koud, soms nat, maar altijd gezellig." },
+  { cat:"Tradities", q:"Wat wordt er 's avonds in grote hoeveelheden gedronken?", options:["Wijn","Rosé","Bier","Cocktails"], answer:2, fun:"Bier natuurlijk! 🍺🍺🍺 En misschien nog wat meer bier. En dan nog één biertje." },
+  { cat:"Locaties", q:"In welk jaar was het weekend in Dongen?", options:["2015","2016","2017","2018"], answer:2, fun:"'t Volderke in Dongen, 10-12 maart 2017. Noord-Brabant op z'n best! 🌾" },
+  { cat:"Locaties", q:"Welke van deze locaties ligt het meest in het zuiden van Nederland?", options:["Groesbeek","Noorbeek","Sevenum","Nistelrode"], answer:1, fun:"Noorbeek in Limburg ligt het meest zuidelijk — vlakbij de Belgische grens! 🗺️" },
+  { cat:"Tradities", q:"Wat was het eerste jaar van het vriendenweekend?", options:["2008","2009","2010","2011"], answer:2, fun:"2010 was het allereerste vriendenweekend — in de Ardennen! En daarna nog twee keer terug. 🇧🇪" },
+  { cat:"Locaties", q:"In welk jaar was het weekend in Heerlen?", options:["2011","2012","2013","2014"], answer:2, fun:"2013 in Heerlen — ook lekker Limburgs! 🌷" },
+  { cat:"Locaties", q:"Welke locatie heeft 'Buitengewoon' in de naam?", options:["Groesbeek 2019","Nistelrode 2022","Dongen 2017","Sevenum 2024"], answer:1, fun:"Buitengewoon Brabant in Nistelrode, 11-13 maart 2022. Buitengewoon gezellig! 🏡" },
+  { cat:"Locaties", q:"Hoeveel keer zijn jullie in de Ardennen geweest?", options:["1 keer","2 keer","3 keer","4 keer"], answer:2, fun:"Drie keer: 2010, 2011 en 2012! Daarna kozen jullie voor locaties in Nederland. 🇧🇪➡️🇳🇱" },
+  { cat:"Locaties", q:"In welk jaar was het weekend op de Veluwe?", options:["2014","2015","2016","2017"], answer:2, fun:"2016 op de Veluwe — én met bierproeverij! 🌲🍺" },
+  { cat:"Locaties", q:"In welke stad ligt Cornelishof, de locatie van 2025?", options:["Venlo","Maastricht","Roermond","Sittard"], answer:2, fun:"Cornelishof in Roermond, 14-16 maart 2025. Gezellig aan de Maas! 🌊" },
+  { cat:"Tradities", q:"Op welke dagen van de week vindt het weekend altijd plaats?", options:["Donderdag t/m zaterdag","Vrijdag t/m zondag","Zaterdag t/m maandag","Woensdag t/m vrijdag"], answer:1, fun:"Altijd vrijdag tot zondag — het perfecte lange weekend! 🎒" }
 ];
 
-let playerName = '';
-let current = 0;
-let answered = false;
-let playerScore = 0;
-let syncInterval = null;
-
-function getGrade(score) {
-  const pct = score / questions.length;
-  if (pct === 1)   return "Perfecte score! Je weet alles! 🏆";
-  if (pct >= 0.8)  return "Waanzinnig goed! 🤘";
-  if (pct >= 0.6)  return "Super tof! 😎";
-  if (pct >= 0.4)  return "Nog wat oefenen! 😅";
+function getGrade(s) {
+  const p = s / questions.length;
+  if (p===1)   return "Perfecte score! Je weet alles! 🏆";
+  if (p>=0.8)  return "Waanzinnig goed! 🤘";
+  if (p>=0.6)  return "Super tof! 😎";
+  if (p>=0.4)  return "Nog wat oefenen! 😅";
   return "Beter luck next time! 😬";
 }
 
-// ── STORAGE ──
-async function saveScore(name, score) {
+// ── JSONBIN ──
+async function getData() {
+  if (!BIN_ID) return {};
   try {
-    await window.storage.set('score:' + name, JSON.stringify({ name, score, updated: Date.now() }), SHARED);
-  } catch(e) {}
+    const r = await fetch(`${BIN_BASE}/${BIN_ID}/latest`, { headers:{'X-Master-Key': JSONBIN_KEY} });
+    if (!r.ok) return {};
+    const j = await r.json();
+    return j.record || {};
+  } catch(e) { return {}; }
 }
 
-async function loadAllScores() {
+async function setData(data) {
   try {
-    const result = await window.storage.list('score:', SHARED);
-    if (!result || !result.keys || result.keys.length === 0) return {};
-    const scores = {};
-    for (const key of result.keys) {
-      try {
-        const r = await window.storage.get(key, SHARED);
-        if (r && r.value) {
-          const d = JSON.parse(r.value);
-          scores[d.name] = d.score;
-        }
-      } catch(e) {}
+    if (!BIN_ID) {
+      const r = await fetch(BIN_BASE, {
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY,'X-Bin-Name':'vriendenquiz','X-Bin-Private':'false'},
+        body: JSON.stringify(data)
+      });
+      const j = await r.json();
+      BIN_ID = j.metadata.id;
+      localStorage.setItem('vwq_bin_id', BIN_ID);
+    } else {
+      await fetch(`${BIN_BASE}/${BIN_ID}`, {
+        method:'PUT',
+        headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},
+        body: JSON.stringify(data)
+      });
     }
-    return scores;
-  } catch(e) { return {}; }
+  } catch(e) {}
 }
 
 // ── SCOREBOARD ──
 async function syncAndRender() {
-  const scores = await loadAllScores();
-  const panel = document.getElementById('scoreboard-panel');
+  const scores = await getData();
   const list = document.getElementById('scoreboard-list');
   if (!list) return;
-  const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  const entries = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
   if (entries.length === 0) {
     list.innerHTML = '<p style="text-align:center;color:#7a5c3a;font-size:13px;padding:10px 0">Nog geen deelnemers — vul je naam in en start de quiz!</p>';
     return;
   }
-  list.innerHTML = entries.map(([name, pts], i) => `
-    <div class="score-row ${i===0 && pts>0 ? 'leader':''}">
-      <span class="rank">${['🥇','🥈','🥉'][i] || (i+1)+'.'}</span>
+  list.innerHTML = entries.map(([name,pts],i) => `
+    <div class="score-row ${i===0&&pts>0?'leader':''}">
+      <span class="rank">${['🥇','🥈','🥉'][i]||(i+1)+'.'}</span>
       <span class="sname ${name===playerName?'you':''}">${name}${name===playerName?' (jij)':''}</span>
       <div class="progress-mini"><div class="progress-mini-fill" style="width:${Math.round((pts/questions.length)*100)}%"></div></div>
       <span class="spts">${pts}</span>
     </div>`).join('');
-  return scores;
 }
 
 // ── NAME SCREEN ──
 function showNameScreen() {
+  playerName = '';
   if (syncInterval) clearInterval(syncInterval);
-  syncInterval = setInterval(syncAndRender, 3000);
+  syncInterval = setInterval(syncAndRender, 5000);
   syncAndRender();
-  const card = document.getElementById('card');
-  card.innerHTML = `
+  document.getElementById('card').innerHTML = `
     <div class="name-screen">
       <div style="font-size:48px;margin-bottom:12px">👋</div>
       <h2>Wie ben jij?</h2>
       <p>Vul je naam in om te beginnen.<br>Je score verschijnt live in het scorebord voor iedereen!</p>
       <input class="name-input" id="name-input" type="text" placeholder="Jouw naam..." maxlength="20" autocomplete="off"/>
       <button class="start-btn" onclick="startQuiz()">Start de quiz 🎯</button>
-      <button class="back-btn" style="margin-top:12px" onclick="showAdminLogin()">⚙️ Beheerderspagina</button>
+      <button class="back-btn" onclick="showAdminLogin()">⚙️ Beheerderspagina</button>
     </div>`;
   const inp = document.getElementById('name-input');
   inp.focus();
-  inp.addEventListener('keydown', e => { if (e.key === 'Enter') startQuiz(); });
+  inp.addEventListener('keydown', e => { if(e.key==='Enter') startQuiz(); });
 }
 
-// ── START ──
 window.startQuiz = async function() {
   const inp = document.getElementById('name-input');
   const name = inp.value.trim();
-  if (!name) { inp.style.borderColor = 'var(--red)'; inp.placeholder = 'Vul je naam in!'; return; }
-  playerName = name;
-  playerScore = 0;
-  current = 0;
-  answered = false;
-  await saveScore(playerName, 0);
+  if (!name) { inp.style.borderColor='var(--red)'; inp.placeholder='Vul je naam in!'; return; }
+  playerName = name; playerScore = 0; current = 0; answered = false;
+  const data = await getData();
+  data[playerName] = 0;
+  await setData(data);
   if (syncInterval) clearInterval(syncInterval);
-  syncInterval = setInterval(syncAndRender, 3000);
+  syncInterval = setInterval(syncAndRender, 5000);
   await syncAndRender();
   renderQuestion();
 };
 
-// ── QUESTION ──
 function renderQuestion() {
   if (current >= questions.length) { showResult(); return; }
   const q = questions[current];
@@ -502,7 +279,7 @@ function renderQuestion() {
     <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
     <div class="question-text">${q.q}</div>
     <div class="options">
-      ${q.options.map((opt,i) => `
+      ${q.options.map((opt,i)=>`
         <button class="opt-btn" id="opt${i}" onclick="selectAnswer(${i})">
           <span class="opt-letter">${['A','B','C','D'][i]}</span>${opt}
         </button>`).join('')}
@@ -510,9 +287,7 @@ function renderQuestion() {
     <div class="reveal-box" id="reveal"><strong>💡 Weetje:</strong> ${q.fun}</div>
     <div class="next-wrap" id="next-wrap">
       <span class="score-badge">⭐ ${playerScore} / ${questions.length}</span>
-      <button class="next-btn" onclick="nextQuestion()">
-        ${current+1 >= questions.length ? 'Bekijk uitslag 🏆' : 'Volgende →'}
-      </button>
+      <button class="next-btn" onclick="nextQuestion()">${current+1>=questions.length?'Bekijk uitslag 🏆':'Volgende →'}</button>
     </div>`;
 }
 
@@ -521,33 +296,30 @@ window.selectAnswer = async function(i) {
   answered = true;
   const q = questions[current];
   if (i === q.answer) playerScore++;
-  for (let j = 0; j < q.options.length; j++) {
+  for (let j=0; j<q.options.length; j++) {
     const btn = document.getElementById('opt'+j);
     btn.disabled = true;
-    if (j === q.answer) btn.classList.add('correct');
-    else if (j === i) btn.classList.add('wrong');
+    if (j===q.answer) btn.classList.add('correct');
+    else if (j===i) btn.classList.add('wrong');
   }
-  await saveScore(playerName, playerScore);
+  const data = await getData();
+  data[playerName] = playerScore;
+  await setData(data);
   await syncAndRender();
   document.getElementById('reveal').classList.add('show');
   document.getElementById('next-wrap').classList.add('show');
 };
 
-window.nextQuestion = function() {
-  current++;
-  answered = false;
-  renderQuestion();
-};
+window.nextQuestion = function() { current++; answered=false; renderQuestion(); };
 
-// ── RESULT ──
 async function showResult() {
   if (syncInterval) clearInterval(syncInterval);
-  await saveScore(playerName, playerScore);
-  const scores = await loadAllScores();
-  const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  const data = await getData();
+  data[playerName] = playerScore;
+  await setData(data);
+  const entries = Object.entries(data).sort((a,b)=>b[1]-a[1]);
   const top3 = entries.slice(0,3);
-  const podiumOrder = [top3[1], top3[0], top3[2]].filter(Boolean);
-
+  const podiumOrder = [top3[1],top3[0],top3[2]].filter(Boolean);
   document.getElementById('card').innerHTML = `
     <div class="result">
       <div class="trophy">🏆</div>
@@ -558,17 +330,14 @@ async function showResult() {
         <span class="big">${playerScore} / ${questions.length}</span>
         <div class="label">${getGrade(playerScore)}</div>
       </div>
-      ${top3.length >= 2 ? `
-      <div class="podium">
-        ${podiumOrder.map(([name,pts],i) => `
-          <div class="podium-item">
-            <div class="podium-block">${['🥈','🥇','🥉'][i]}</div>
-            <div class="podium-name">${name}</div>
-            <div class="podium-pts">${pts} pt</div>
-          </div>`).join('')}
-      </div>` : ''}
+      ${top3.length>=2?`<div class="podium">${podiumOrder.map(([name,pts],i)=>`
+        <div class="podium-item">
+          <div class="podium-block">${['🥈','🥇','🥉'][i]}</div>
+          <div class="podium-name">${name}</div>
+          <div class="podium-pts">${pts} pt</div>
+        </div>`).join('')}</div>`:''}
       <div class="full-ranking">
-        ${entries.map(([name,pts],i) => `
+        ${entries.map(([name,pts],i)=>`
           <div class="rank-row">
             <span class="rrank">${i+1}.</span>
             <span class="rname ${name===playerName?'you':''}">${name}${name===playerName?' ★':''}</span>
@@ -580,84 +349,73 @@ async function showResult() {
 }
 
 window.playAgain = async function() {
-  try { await window.storage.delete('score:' + playerName, SHARED); } catch(e) {}
-  playerName = '';
-  playerScore = 0;
-  current = 0;
-  answered = false;
-  if (syncInterval) clearInterval(syncInterval);
+  const data = await getData();
+  delete data[playerName];
+  await setData(data);
+  playerName=''; playerScore=0; current=0; answered=false;
   showNameScreen();
 };
 
 // ── ADMIN ──
-const ADMIN_PASSWORD = 'Vriendenquiz2026';
-
 function showAdminLogin() {
   if (syncInterval) clearInterval(syncInterval);
-  document.getElementById('scoreboard-panel').style.display = 'none';
   document.getElementById('card').innerHTML = `
     <div class="admin-screen" style="text-align:center">
       <div style="font-size:42px;margin-bottom:12px">🔐</div>
       <h2>Beheerderspagina</h2>
       <p>Vul het beheerderswachtwoord in om deelnemers te verwijderen.</p>
       <input class="name-input" id="admin-pw" type="password" placeholder="Wachtwoord..." autocomplete="off"/>
-      <button class="start-btn" onclick="checkAdminPassword()">Inloggen</button>
+      <button class="start-btn" onclick="checkAdminPw()">Inloggen</button>
       <button class="back-btn" onclick="showNameScreen()">← Terug naar quiz</button>
     </div>`;
   const inp = document.getElementById('admin-pw');
   inp.focus();
-  inp.addEventListener('keydown', e => { if (e.key === 'Enter') checkAdminPassword(); });
+  inp.addEventListener('keydown', e => { if(e.key==='Enter') checkAdminPw(); });
 }
 
-async function checkAdminPassword() {
+window.checkAdminPw = function() {
   const inp = document.getElementById('admin-pw');
-  if (inp.value === ADMIN_PASSWORD) {
-    await showAdminPanel();
-  } else {
-    inp.value = '';
-    inp.style.borderColor = 'var(--red)';
-    inp.placeholder = 'Verkeerd wachtwoord, probeer opnieuw!';
-  }
-}
+  if (inp.value === ADMIN_PW) { showAdminPanel(); }
+  else { inp.value=''; inp.style.borderColor='var(--red)'; inp.placeholder='Verkeerd wachtwoord!'; }
+};
 
 async function showAdminPanel() {
-  const scores = await loadAllScores();
-  const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  const scores = await getData();
+  const entries = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
   document.getElementById('card').innerHTML = `
     <div class="admin-screen">
       <div style="text-align:center;margin-bottom:20px">
         <div style="font-size:36px;margin-bottom:8px">⚙️</div>
         <h2>Beheer deelnemers</h2>
-        <p>${entries.length} deelnemer(s) in het scorebord</p>
+        <p>${entries.length} deelnemer(s) gevonden</p>
       </div>
-      <div id="admin-list">
-        ${entries.length === 0
-          ? '<p style="text-align:center;color:#7a5c3a;font-size:14px">Geen deelnemers gevonden.</p>'
-          : entries.map(([name, pts]) => `
-            <div class="admin-player-row" id="row-${CSS.escape(name)}">
-              <span class="aname">${name}</span>
-              <span class="apts">${pts} pt</span>
-              <button class="del-btn" onclick="deletePlayer('${name.replace(/'/g,"\\'")}')">🗑 Verwijder</button>
-            </div>`).join('')}
-      </div>
-      ${entries.length > 0 ? `<button class="del-all-btn" onclick="deleteAllPlayers()">🗑 Verwijder alle deelnemers</button>` : ''}
+      ${entries.length===0
+        ? '<p style="text-align:center;color:#7a5c3a;font-size:14px">Geen deelnemers gevonden.</p>'
+        : entries.map(([name,pts])=>`
+          <div class="admin-player-row">
+            <span class="aname">${name}</span>
+            <span class="apts">${pts} pt</span>
+            <button class="del-btn" onclick="adminDelete('${name.replace(/'/g,"\\'")}')">🗑 Verwijder</button>
+          </div>`).join('')}
+      ${entries.length>0?`<button class="del-all-btn" onclick="adminDeleteAll()">🗑 Verwijder alle deelnemers</button>`:''}
       <button class="back-btn" onclick="showNameScreen()">← Terug naar quiz</button>
     </div>`;
 }
 
-window.deletePlayer = async function(name) {
+window.adminDelete = async function(name) {
   if (!confirm(`Weet je zeker dat je "${name}" wilt verwijderen?`)) return;
-  try { await window.storage.delete('score:' + name, SHARED); } catch(e) {}
-  await showAdminPanel();
+  const data = await getData();
+  delete data[name];
+  await setData(data);
+  await syncAndRender();
+  showAdminPanel();
 };
 
-window.deleteAllPlayers = async function() {
+window.adminDeleteAll = async function() {
   if (!confirm('Weet je zeker dat je ALLE deelnemers wilt verwijderen?')) return;
-  const scores = await loadAllScores();
-  for (const name of Object.keys(scores)) {
-    try { await window.storage.delete('score:' + name, SHARED); } catch(e) {}
-  }
-  await showAdminPanel();
+  await setData({});
+  await syncAndRender();
+  showAdminPanel();
 };
 
 window.showAdminLogin = showAdminLogin;
