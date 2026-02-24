@@ -232,14 +232,13 @@
   <div class="beer-row">🍺 🥾 🍝 🏕️ 🍺</div>
 </div>
 
-<div class="scoreboard-panel" id="scoreboard-panel" style="display:none">
+<div class="scoreboard-panel" id="scoreboard-panel">
   <div class="sync-bar"><span class="sync-dot"></span>Live scorebord — wordt elke 3 seconden bijgewerkt</div>
   <div class="scoreboard-title">🏆 Ranglijst</div>
-  <div class="scoreboard-list" id="scoreboard-list"></div>
+  <div class="scoreboard-list" id="scoreboard-list"><p style="text-align:center;color:#7a5c3a;font-size:13px;padding:10px 0">Nog geen deelnemers — vul je naam in en start de quiz!</p></div>
 </div>
 
 <div class="card" id="card"></div>
-<a class="admin-link" onclick="showAdminLogin()">⚙ beheer</a>
 
 <script>
 const SHARED = true;
@@ -440,8 +439,10 @@ async function syncAndRender() {
   const list = document.getElementById('scoreboard-list');
   if (!list) return;
   const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
-  if (entries.length === 0) { panel.style.display = 'none'; return; }
-  panel.style.display = 'block';
+  if (entries.length === 0) {
+    list.innerHTML = '<p style="text-align:center;color:#7a5c3a;font-size:13px;padding:10px 0">Nog geen deelnemers — vul je naam in en start de quiz!</p>';
+    return;
+  }
   list.innerHTML = entries.map(([name, pts], i) => `
     <div class="score-row ${i===0 && pts>0 ? 'leader':''}">
       <span class="rank">${['🥇','🥈','🥉'][i] || (i+1)+'.'}</span>
@@ -454,7 +455,9 @@ async function syncAndRender() {
 
 // ── NAME SCREEN ──
 function showNameScreen() {
-  document.getElementById('scoreboard-panel').style.display = 'none';
+  if (syncInterval) clearInterval(syncInterval);
+  syncInterval = setInterval(syncAndRender, 3000);
+  syncAndRender();
   const card = document.getElementById('card');
   card.innerHTML = `
     <div class="name-screen">
@@ -463,6 +466,7 @@ function showNameScreen() {
       <p>Vul je naam in om te beginnen.<br>Je score verschijnt live in het scorebord voor iedereen!</p>
       <input class="name-input" id="name-input" type="text" placeholder="Jouw naam..." maxlength="20" autocomplete="off"/>
       <button class="start-btn" onclick="startQuiz()">Start de quiz 🎯</button>
+      <button class="back-btn" style="margin-top:12px" onclick="showAdminLogin()">⚙️ Beheerderspagina</button>
     </div>`;
   const inp = document.getElementById('name-input');
   inp.focus();
