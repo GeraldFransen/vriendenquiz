@@ -127,7 +127,7 @@
 <div class="header">
   <div class="badge">🏡 Vriendenweekend Quiz</div>
   <h1>Ken jij de <span>groep</span>?</h1>
-  <p>Wandelen, spelletjes, tradities en alles wat ons bindtt</p>
+  <p>Reizen, tradities en alles wat ons bindt</p>
   <div class="beer-row">🍺 🥾 🍝 🏕️ 🍺</div>
 </div>
 
@@ -189,17 +189,22 @@ async function getData() {
     const r = await fetch(`${BIN_BASE}/${BIN_ID}/latest`, { headers:{'X-Master-Key': JSONBIN_KEY} });
     if (!r.ok) return {};
     const j = await r.json();
-    return j.record || {};
+    const record = j.record || {};
+    // Filter out internal placeholder key
+    delete record.__empty;
+    return record;
   } catch(e) { return {}; }
 }
 
 async function setData(data) {
+  // JSONBin does not allow empty objects — always keep a placeholder key
+  const toSave = Object.keys(data).length === 0 ? { __empty: true } : data;
   try {
     if (!BIN_ID) {
       const r = await fetch(BIN_BASE, {
         method:'POST',
         headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY,'X-Bin-Name':'vriendenquiz','X-Bin-Private':'false'},
-        body: JSON.stringify(data)
+        body: JSON.stringify(toSave)
       });
       const j = await r.json();
       BIN_ID = j.metadata.id;
@@ -208,7 +213,7 @@ async function setData(data) {
       await fetch(`${BIN_BASE}/${BIN_ID}`, {
         method:'PUT',
         headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},
-        body: JSON.stringify(data)
+        body: JSON.stringify(toSave)
       });
     }
   } catch(e) {}
