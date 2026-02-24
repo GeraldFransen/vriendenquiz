@@ -127,7 +127,7 @@
 <div class="header">
   <div class="badge">🏡 Vriendenweekend Quiz</div>
   <h1>Ken jij de <span>groep</span>?</h1>
-  <p>Weekendjes, spelletjes, tradities en alles wat ons bindt</p>
+  <p>Reizen, tradities en alles wat ons bindt</p>
   <div class="beer-row">🍺 🥾 🍝 🏕️ 🍺</div>
 </div>
 
@@ -190,8 +190,9 @@ async function getData() {
     if (!r.ok) return {};
     const j = await r.json();
     const record = j.record || {};
-    // Filter out internal placeholder key
+    // Filter out internal placeholder keys
     delete record.__empty;
+    delete record.reset;
     return record;
   } catch(e) { return {}; }
 }
@@ -218,13 +219,19 @@ async function syncAndRender() {
     list.innerHTML = '<p style="text-align:center;color:#7a5c3a;font-size:13px;padding:10px 0">Nog geen deelnemers — vul je naam in en start de quiz!</p>';
     return;
   }
-  list.innerHTML = entries.map(([name,pts],i) => `
-    <div class="score-row ${i===0&&pts>0?'leader':''}">
-      <span class="rank">${['🥇','🥈','🥉'][i]||(i+1)+'.'}</span>
-      <span class="sname ${name===playerName?'you':''}">${name}${name===playerName?' (jij)':''}</span>
-      <div class="progress-mini"><div class="progress-mini-fill" style="width:${Math.round((pts/questions.length)*100)}%"></div></div>
-      <span class="spts">${pts}</span>
-    </div>`).join('');
+  list.innerHTML = entries.map(([name,pts],i) => {
+    const medals = ['🥇','🥈','🥉'];
+    const rank = medals[i] || (i+1)+'.';
+    const pct = Math.round((pts/questions.length)*100);
+    const isYou = name===playerName;
+    const isLeader = i===0 && pts>0;
+    return '<div class="score-row ' + (isLeader?'leader':'') + '">' +
+      '<span class="rank">' + rank + '</span>' +
+      '<span class="sname ' + (isYou?'you':'') + '">' + name + (isYou?' (jij)':'') + '</span>' +
+      '<div class="progress-mini"><div class="progress-mini-fill" style="width:' + pct + '%"></div></div>' +
+      '<span class="spts">' + pts + '</span>' +
+      '</div>';
+  }).join('');
 }
 
 // ── NAME SCREEN ──
