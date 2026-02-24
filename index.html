@@ -18,376 +18,173 @@
       --card-bg: #fffdf7;
       --shadow: 0 8px 40px rgba(59,36,16,0.13);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background-color: var(--cream);
       background-image:
         radial-gradient(ellipse at 20% 10%, rgba(201,125,42,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 90%, rgba(45,74,45,0.10) 0%, transparent 60%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23c97d2a' opacity='0.08'/%3E%3C/svg%3E");
+        radial-gradient(ellipse at 80% 90%, rgba(45,74,45,0.10) 0%, transparent 60%);
       min-height: 100vh;
       font-family: 'DM Sans', sans-serif;
       color: var(--brown);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       padding: 40px 20px 60px;
     }
 
-    /* ── HEADER ── */
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-      animation: fadeDown 0.7s ease both;
-    }
+    .header { text-align: center; margin-bottom: 32px; animation: fadeDown 0.7s ease both; }
     .header .badge {
-      display: inline-block;
-      background: var(--amber);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 5px 16px;
-      border-radius: 50px;
-      margin-bottom: 14px;
+      display: inline-block; background: var(--amber); color: #fff;
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; padding: 5px 16px; border-radius: 50px; margin-bottom: 14px;
     }
     .header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(38px, 6vw, 64px);
-      font-weight: 900;
-      line-height: 1.05;
-      color: var(--brown);
+      font-size: clamp(34px, 6vw, 58px); font-weight: 900; line-height: 1.05; color: var(--brown);
     }
     .header h1 span { color: var(--amber); }
-    .header p {
-      margin-top: 10px;
-      font-size: 16px;
-      color: #7a5c3a;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .beer-row {
-      font-size: 28px;
-      margin-top: 10px;
-      letter-spacing: 4px;
-    }
+    .header p { margin-top: 10px; font-size: 15px; color: #7a5c3a; }
+    .beer-row { font-size: 26px; margin-top: 10px; letter-spacing: 4px; }
 
-    /* ── SCOREBOARD ── */
-    #scoreboard {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 32px;
-      max-width: 700px;
-      width: 100%;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-    .player-chip {
-      background: var(--card-bg);
-      border: 2px solid var(--amber-pale);
-      border-radius: 50px;
-      padding: 6px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--brown);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 8px rgba(59,36,16,0.07);
-      transition: all 0.2s;
-    }
-    .player-chip .pts {
-      background: var(--amber);
-      color: white;
-      border-radius: 50px;
-      padding: 1px 8px;
-      font-size: 12px;
-      font-weight: 700;
-      min-width: 26px;
-      text-align: center;
-    }
-    .player-chip.leader {
-      border-color: var(--amber);
-      background: var(--amber-pale);
-    }
-    .player-chip.leader .pts { background: var(--green); }
-
-    /* ── CARD ── */
     .card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      border: 1.5px solid rgba(201,125,42,0.18);
-      padding: 40px 44px;
-      max-width: 700px;
-      width: 100%;
-      animation: fadeUp 0.5s ease both;
+      background: var(--card-bg); border-radius: 24px; box-shadow: var(--shadow);
+      border: 1.5px solid rgba(201,125,42,0.18); padding: 36px 40px;
+      max-width: 620px; width: 100%; animation: fadeUp 0.5s ease both;
     }
 
-    /* ── PROGRESS ── */
-    .progress-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
+    /* NAME ENTRY */
+    .name-screen { text-align: center; }
+    .name-screen h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 8px; color: var(--brown); }
+    .name-screen p { color: #7a5c3a; font-size: 14px; margin-bottom: 24px; line-height: 1.6; }
+    .name-input {
+      width: 100%; padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 16px;
+      border: 2px solid rgba(201,125,42,0.3); border-radius: 14px; background: #fff;
+      color: var(--brown); outline: none; margin-bottom: 14px; transition: border-color 0.2s;
     }
-    .progress-meta .qnum {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--amber);
+    .name-input:focus { border-color: var(--amber); }
+    .start-btn {
+      width: 100%; background: var(--brown); color: var(--cream); border: none;
+      border-radius: 50px; padding: 14px; font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;
     }
-    .progress-meta .cat-tag {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      background: var(--green);
-      color: #fff;
-      padding: 3px 12px;
-      border-radius: 50px;
-    }
-    .progress-track {
-      height: 5px;
-      background: var(--amber-pale);
-      border-radius: 10px;
-      margin-bottom: 30px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--amber), var(--amber-light));
-      border-radius: 10px;
-      transition: width 0.4s ease;
-    }
+    .start-btn:hover { background: var(--amber); }
 
-    /* ── QUESTION ── */
+    /* PROGRESS */
+    .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .progress-meta .qnum { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); }
+    .progress-meta .cat-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: var(--green); color: #fff; padding: 3px 12px; border-radius: 50px; }
+    .progress-track { height: 5px; background: var(--amber-pale); border-radius: 10px; margin-bottom: 28px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-light)); border-radius: 10px; transition: width 0.4s ease; }
+
+    /* QUESTION */
     .question-text {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(20px, 3.5vw, 26px);
-      font-weight: 700;
-      color: var(--brown);
-      margin-bottom: 28px;
-      line-height: 1.4;
+      font-family: 'Playfair Display', serif; font-size: clamp(19px, 3.5vw, 24px);
+      font-weight: 700; color: var(--brown); margin-bottom: 24px; line-height: 1.4;
     }
 
-    /* ── OPTIONS ── */
-    .options { display: grid; gap: 11px; }
+    /* OPTIONS */
+    .options { display: grid; gap: 10px; }
     .opt-btn {
-      background: #fff;
-      border: 2px solid rgba(201,125,42,0.22);
-      border-radius: 14px;
-      padding: 15px 20px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--brown);
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.18s;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      background: #fff; border: 2px solid rgba(201,125,42,0.22); border-radius: 14px;
+      padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--brown); text-align: left; cursor: pointer; transition: all 0.18s;
+      display: flex; align-items: center; gap: 12px; width: 100%;
     }
-    .opt-btn:hover:not(:disabled) {
-      border-color: var(--amber);
-      background: var(--amber-pale);
-      transform: translateX(4px);
-    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--amber); background: var(--amber-pale); transform: translateX(4px); }
     .opt-letter {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--amber-pale);
-      color: var(--amber);
-      font-weight: 700;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: all 0.18s;
+      width: 28px; height: 28px; border-radius: 50%; background: var(--amber-pale); color: var(--amber);
+      font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.18s;
     }
-    .opt-btn.correct {
-      border-color: var(--green-light);
-      background: #edf6ed;
-      color: var(--green);
-    }
+    .opt-btn.correct { border-color: var(--green-light); background: #edf6ed; color: var(--green); }
     .opt-btn.correct .opt-letter { background: var(--green-light); color: #fff; }
-    .opt-btn.wrong {
-      border-color: var(--red);
-      background: #fbeaea;
-      color: var(--red);
-    }
+    .opt-btn.wrong { border-color: var(--red); background: #fbeaea; color: var(--red); }
     .opt-btn.wrong .opt-letter { background: var(--red); color: #fff; }
 
-    /* ── ANSWER REVEAL ── */
+    /* REVEAL */
     .reveal-box {
-      margin-top: 20px;
-      padding: 14px 18px;
-      background: var(--amber-pale);
-      border-left: 4px solid var(--amber);
-      border-radius: 10px;
-      font-size: 14px;
-      color: var(--brown);
-      line-height: 1.6;
-      display: none;
+      margin-top: 18px; padding: 13px 16px; background: var(--amber-pale);
+      border-left: 4px solid var(--amber); border-radius: 10px; font-size: 14px;
+      color: var(--brown); line-height: 1.6; display: none;
     }
     .reveal-box.show { display: block; animation: fadeUp 0.3s ease; }
     .reveal-box strong { color: var(--amber); }
 
-    /* ── SCORE INPUT ── */
-    .score-section {
-      margin-top: 22px;
-      padding-top: 22px;
-      border-top: 1.5px dashed rgba(201,125,42,0.3);
-      display: none;
-    }
-    .score-section.show { display: block; animation: fadeUp 0.3s ease; }
-    .score-section p {
-      font-size: 13px;
-      font-weight: 600;
-      color: #7a5c3a;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-    }
-    .score-players {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .score-player-btn {
-      padding: 7px 15px;
-      border-radius: 50px;
-      border: 2px solid rgba(201,125,42,0.3);
-      background: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--brown);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .score-player-btn:hover { border-color: var(--amber); background: var(--amber-pale); }
-    .score-player-btn.selected { background: var(--amber); border-color: var(--amber); color: #fff; }
-
-    /* ── NEXT BUTTON ── */
-    .next-wrap { margin-top: 22px; display: flex; justify-content: flex-end; display: none; }
+    /* NEXT */
+    .next-wrap { margin-top: 20px; display: none; justify-content: space-between; align-items: center; }
     .next-wrap.show { display: flex; }
+    .score-badge { background: var(--amber-pale); border: 1.5px solid var(--amber); border-radius: 50px; padding: 6px 16px; font-size: 13px; font-weight: 700; color: var(--amber); }
     .next-btn {
-      background: var(--brown);
-      color: var(--cream);
-      border: none;
-      border-radius: 50px;
-      padding: 13px 34px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      background: var(--brown); color: var(--cream); border: none; border-radius: 50px;
+      padding: 12px 30px; font-family: 'DM Sans', sans-serif; font-size: 15px;
+      font-weight: 600; cursor: pointer; transition: all 0.2s;
     }
-    .next-btn:hover { background: var(--amber); transform: scale(1.03); }
+    .next-btn:hover { background: var(--amber); }
 
-    /* ── RESULT SCREEN ── */
-    .result {
-      text-align: center;
-      padding: 10px 0;
+    /* SCOREBOARD */
+    .scoreboard-panel { max-width: 620px; width: 100%; margin-bottom: 20px; animation: fadeUp 0.5s 0.1s ease both; }
+    .sync-bar { text-align: center; font-size: 12px; color: #7a5c3a; margin-bottom: 10px; }
+    .sync-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); margin-right: 6px; animation: pulse 2s infinite; }
+    .scoreboard-title { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; text-align: center; }
+    .scoreboard-list { display: flex; flex-direction: column; gap: 6px; }
+    .score-row {
+      background: var(--card-bg); border: 1.5px solid rgba(201,125,42,0.18); border-radius: 12px;
+      padding: 10px 16px; display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600; box-shadow: 0 2px 8px rgba(59,36,16,0.06); transition: all 0.3s;
     }
-    .result .trophy { font-size: 72px; margin-bottom: 10px; }
-    .result h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: var(--brown);
-      margin-bottom: 6px;
+    .score-row.leader { border-color: var(--amber); background: var(--amber-pale); }
+    .score-row .rank { color: var(--amber); font-weight: 700; width: 26px; text-align: center; font-size: 14px; }
+    .score-row .sname { flex: 1; color: var(--brown); }
+    .score-row .sname.you { color: var(--amber); }
+    .score-row .progress-mini { flex: 2; height: 6px; background: rgba(201,125,42,0.15); border-radius: 10px; overflow: hidden; }
+    .score-row .progress-mini-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-light)); border-radius: 10px; transition: width 0.5s ease; }
+    .score-row .spts { font-weight: 700; color: var(--green); font-size: 15px; min-width: 28px; text-align: right; }
+
+    /* RESULT */
+    .result { text-align: center; padding: 10px 0; }
+    .result .trophy { font-size: 68px; margin-bottom: 10px; }
+    .result h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--brown); margin-bottom: 6px; }
+    .result .subtitle { color: #7a5c3a; margin-bottom: 20px; font-size: 15px; }
+    .your-score-box {
+      background: var(--amber-pale); border: 2px solid var(--amber); border-radius: 16px;
+      padding: 16px; margin-bottom: 22px;
     }
-    .result .subtitle { color: #7a5c3a; margin-bottom: 30px; font-size: 15px; }
-    .podium {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
+    .your-score-box p { font-size: 14px; color: #7a5c3a; margin-bottom: 4px; }
+    .your-score-box .big { font-size: 42px; font-weight: 900; color: var(--amber); }
+    .your-score-box .label { font-size: 16px; font-weight: 600; color: var(--brown); margin-top: 4px; }
+    .podium { display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-bottom: 22px; }
     .podium-item { text-align: center; }
     .podium-block {
-      width: 90px;
-      background: var(--amber-pale);
-      border: 2px solid var(--amber);
-      border-radius: 12px 12px 0 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 10px;
-      font-size: 24px;
+      width: 84px; background: var(--amber-pale); border: 2px solid var(--amber);
+      border-radius: 12px 12px 0 0; display: flex; align-items: flex-end;
+      justify-content: center; padding-bottom: 8px; font-size: 22px;
     }
-    .podium-item:nth-child(1) .podium-block { height: 80px; }
-    .podium-item:nth-child(2) .podium-block { height: 120px; background: var(--amber); border-color: var(--brown); }
-    .podium-item:nth-child(3) .podium-block { height: 60px; }
-    .podium-name {
-      font-weight: 700;
-      font-size: 13px;
-      color: var(--brown);
-      margin-top: 6px;
+    .podium-item:nth-child(1) .podium-block { height: 75px; }
+    .podium-item:nth-child(2) .podium-block { height: 110px; background: var(--amber); border-color: var(--brown); }
+    .podium-item:nth-child(3) .podium-block { height: 55px; }
+    .podium-name { font-weight: 700; font-size: 12px; color: var(--brown); margin-top: 5px; max-width: 84px; word-break: break-word; }
+    .podium-pts { font-size: 11px; color: var(--amber); font-weight: 600; }
+    .full-ranking { max-width: 360px; margin: 0 auto 22px; text-align: left; }
+    .rank-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(201,125,42,0.15); font-size: 14px; }
+    .rank-row .rrank { color: var(--amber); font-weight: 700; width: 24px; }
+    .rank-row .rname { flex: 1; font-weight: 500; }
+    .rank-row .rname.you { color: var(--amber); font-weight: 700; }
+    .rank-row .rpts { font-weight: 700; color: var(--green); }
+    .play-again-btn {
+      background: var(--amber); color: #fff; border: none; border-radius: 50px;
+      padding: 13px 36px; font-family: 'DM Sans', sans-serif; font-size: 15px;
+      font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 4px;
     }
-    .podium-pts {
-      font-size: 12px;
-      color: var(--amber);
-      font-weight: 600;
-    }
-    .all-scores {
-      max-width: 360px;
-      margin: 0 auto 28px;
-      text-align: left;
-    }
-    .score-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(201,125,42,0.15);
-      font-size: 14px;
-    }
-    .score-row .rank { color: var(--amber); font-weight: 700; width: 24px; }
-    .score-row .name { flex: 1; font-weight: 500; }
-    .score-row .pts-val { font-weight: 700; color: var(--green); }
-    .restart-btn {
-      background: var(--amber);
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      padding: 14px 40px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .restart-btn:hover { background: var(--brown); }
+    .play-again-btn:hover { background: var(--brown); }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-    @media (max-width: 520px) {
-      .card { padding: 28px 22px; }
-      .podium-block { width: 72px; }
+    @media (max-width: 480px) {
+      .card { padding: 24px 18px; }
+      .podium-block { width: 68px; }
     }
   </style>
 </head>
@@ -396,18 +193,20 @@
 <div class="header">
   <div class="badge">🏡 Vriendenweekend Quiz</div>
   <h1>Ken jij de <span>groep</span>?</h1>
-  <p>Reizen, tradities en alles wat ons bindt — wie scoort het hoogst?</p>
+  <p>Reizen, tradities en alles wat ons bindt</p>
   <div class="beer-row">🍺 🥾 🍝 🏕️ 🍺</div>
 </div>
 
-<div id="scoreboard"></div>
+<div class="scoreboard-panel" id="scoreboard-panel" style="display:none">
+  <div class="sync-bar"><span class="sync-dot"></span>Live scorebord — wordt elke 3 seconden bijgewerkt</div>
+  <div class="scoreboard-title">🏆 Ranglijst</div>
+  <div class="scoreboard-list" id="scoreboard-list"></div>
+</div>
 
 <div class="card" id="card"></div>
 
 <script>
-const players = ["Han","Karenze","Puk","Jannes","Ginny","Gerald","Finn","Zoë","Henrike","Mark","Dex","Marja","Ries","Peer","Mink","Silas","Ralph","Patty","Jens","Tessel","Pien"];
-const scores = Object.fromEntries(players.map(p => [p, 0]));
-
+const SHARED = true;
 const questions = [
   {
     cat: "Locaties",
@@ -418,10 +217,10 @@ const questions = [
   },
   {
     cat: "Locaties",
-    q: "In welk jaar trokken jullie naar het buitenland voor het vriendenweekend?",
+    q: "In welk jaar trokken jullie voor het eerst naar het buitenland voor het vriendenweekend?",
     options: ["2010", "2011", "2012", "2013"],
-    answer: 2,
-    fun: "In 2012 was het weekend in de Ardennen — drie keer zelfs, van 2010 t/m 2012! 🇧🇪"
+    answer: 0,
+    fun: "Van 2010 t/m 2012 waren jullie drie keer op rij in de Ardennen! 🇧🇪"
   },
   {
     cat: "Locaties",
@@ -432,10 +231,10 @@ const questions = [
   },
   {
     cat: "Locaties",
-    q: "Hoe heet de locatie van het meest recente weekend in 2024?",
-    options: ["Everbosch II", "Busselaar", "Hof van Ulvend", "'t Volderke"],
-    answer: 1,
-    fun: "Busselaar in Sevenum, 22-24 maart 2024. De meest recente editie! 🏡"
+    q: "Wat was de locatie van het meest recente weekend in 2025?",
+    options: ["Busselaar Sevenum", "Hof van Ulvend Noorbeek", "Cornelishof Roermond", "Everbosch II Groesbeek"],
+    answer: 2,
+    fun: "Cornelishof in Roermond, 14-16 maart 2025. Weer lekker in Limburg! 🏡"
   },
   {
     cat: "Locaties",
@@ -453,10 +252,10 @@ const questions = [
   },
   {
     cat: "Locaties",
-    q: "Hoe lang bestaat dit vriendenweekend al? (t/m 2024, inclusief het gecancelde jaar)",
-    options: ["10 jaar", "12 jaar", "15 jaar", "14 jaar"],
+    q: "Hoe lang bestaat dit vriendenweekend al? (t/m 2025, inclusief het gecancelde jaar)",
+    options: ["12 jaar", "14 jaar", "16 jaar", "18 jaar"],
     answer: 2,
-    fun: "Van 2010 t/m 2024 = 15 edities (inclusief het gecancelde 2020)! Dat is een echte traditie! 🏆"
+    fun: "Van 2010 t/m 2025 = 16 edities (inclusief het gecancelde 2020)! Dat is een echte traditie! 🏆"
   },
   {
     cat: "Tradities",
@@ -508,18 +307,11 @@ const questions = [
     fun: "Noorbeek in Limburg ligt het meest zuidelijk — vlakbij de Belgische grens! 🗺️"
   },
   {
-    cat: "Groep",
-    q: "Hoeveel mensen doen er mee aan dit vriendenweekend?",
-    options: ["17", "19", "21", "23"],
-    answer: 2,
-    fun: "Met z'n 21-en: Han, Karenze, Puk, Jannes, Ginny, Gerald, Finn, Zoë, Henrike, Mark, Dex, Marja, Ries, Peer, Mink, Silas, Ralph, Patty, Jens, Tessel en Pien! 🎉"
-  },
-  {
     cat: "Tradities",
-    q: "Wat is het eerste jaar dat jullie naar de Ardennen gingen?",
-    options: ["2009", "2010", "2011", "2012"],
-    answer: 1,
-    fun: "2010 was het allereerste vriendenweekend — in de Ardennen! En daarna nog twee keer terug, in 2011 en 2012. 🇧🇪"
+    q: "Wat was het eerste jaar van het vriendenweekend?",
+    options: ["2008", "2009", "2010", "2011"],
+    answer: 2,
+    fun: "2010 was het allereerste vriendenweekend — in de Ardennen! En daarna nog twee keer terug. 🇧🇪"
   },
   {
     cat: "Locaties",
@@ -536,73 +328,133 @@ const questions = [
     fun: "Buitengewoon Brabant in Nistelrode, 11-13 maart 2022. Buitengewoon gezellig! 🏡"
   },
   {
-    cat: "Groep",
-    q: "Op welke dag van de week begint het weekend altijd?",
-    options: ["Donderdag", "Vrijdag", "Zaterdag", "Woensdag"],
-    answer: 1,
-    fun: "Altijd vrijdag tot zondag — het perfecte lang weekend! 🎒"
+    cat: "Locaties",
+    q: "Hoeveel keer zijn jullie in de Ardennen geweest?",
+    options: ["1 keer", "2 keer", "3 keer", "4 keer"],
+    answer: 2,
+    fun: "Drie keer: 2010, 2011 en 2012! Daarna kozen jullie voor locaties in Nederland. 🇧🇪➡️🇳🇱"
+  },
+  {
+    cat: "Locaties",
+    q: "In welk jaar was het weekend op de Veluwe?",
+    options: ["2014", "2015", "2016", "2017"],
+    answer: 2,
+    fun: "2016 op de Veluwe — én met bierproeverij! 🌲🍺"
+  },
+  {
+    cat: "Locaties",
+    q: "In welke stad ligt Cornelishof, de locatie van 2025?",
+    options: ["Venlo", "Maastricht", "Roermond", "Sittard"],
+    answer: 2,
+    fun: "Cornelishof in Roermond, 14-16 maart 2025. Gezellig aan de Maas! 🌊"
   },
   {
     cat: "Tradities",
-    q: "Wat deden jullie in 2016 naast wandelen, dat heel 'hoppy' was?",
-    options: ["Bierbrouwen", "Bierproeverij", "Bierfestival bezoeken", "Bier-pong toernooi"],
+    q: "Op welke dagen van de week vindt het weekend altijd plaats?",
+    options: ["Donderdag t/m zaterdag", "Vrijdag t/m zondag", "Zaterdag t/m maandag", "Woensdag t/m vrijdag"],
     answer: 1,
-    fun: "Een echte bierproeverij in 2016 op de Veluwe! 🍺 Hopelijk konden jullie daarna nog rechtop wandelen..."
+    fun: "Altijd vrijdag tot zondag — het perfecte lange weekend! 🎒"
   }
 ];
 
+let playerName = '';
 let current = 0;
 let answered = false;
-let selectedForPoints = [];
+let playerScore = 0;
+let syncInterval = null;
 
-function renderScoreboard() {
-  const board = document.getElementById("scoreboard");
-  const sorted = [...players].sort((a,b) => scores[b]-scores[a]);
-  const max = scores[sorted[0]];
-  board.innerHTML = sorted.map(p => `
-    <div class="player-chip ${scores[p] === max && max > 0 ? 'leader' : ''}">
-      ${p} <span class="pts">${scores[p]}</span>
-    </div>`).join("");
+function getGrade(score) {
+  const pct = score / questions.length;
+  if (pct === 1)   return "Perfecte score! Je weet alles! 🏆";
+  if (pct >= 0.8)  return "Waanzinnig goed! 🤘";
+  if (pct >= 0.6)  return "Super tof! 😎";
+  if (pct >= 0.4)  return "Nog wat oefenen! 😅";
+  return "Beter luck next time! 😬";
 }
 
-function render() {
-  renderScoreboard();
-  const card = document.getElementById("card");
+// ── STORAGE ──
+async function saveScore(name, score) {
+  try {
+    await window.storage.set('score:' + name, JSON.stringify({ name, score, updated: Date.now() }), SHARED);
+  } catch(e) {}
+}
 
-  if (current >= questions.length) {
-    const sorted = [...players].sort((a,b) => scores[b]-scores[a]);
-    const top3 = sorted.slice(0,3);
-    // podium order: 2nd, 1st, 3rd
-    const podiumOrder = [top3[1]||"", top3[0]||"", top3[2]||""];
-    card.innerHTML = `
-      <div class="result">
-        <div class="trophy">🏆</div>
-        <h2>Quiz Voltooid!</h2>
-        <p class="subtitle">En de winnaar van het vriendenweekend-quiz is...</p>
-        <div class="podium">
-          ${podiumOrder.map((name,i) => `
-            <div class="podium-item">
-              <div class="podium-block">${["🥈","🥇","🥉"][i]}</div>
-              <div class="podium-name">${name}</div>
-              <div class="podium-pts">${name ? scores[name] + ' pt' : ''}</div>
-            </div>`).join("")}
-        </div>
-        <div class="all-scores">
-          ${sorted.map((p,i) => `
-            <div class="score-row">
-              <span class="rank">${i+1}.</span>
-              <span class="name">${p}</span>
-              <span class="pts-val">${scores[p]} pt</span>
-            </div>`).join("")}
-        </div>
-        <button class="restart-btn" onclick="restart()">🔄 Opnieuw Spelen</button>
-      </div>`;
-    return;
-  }
+async function loadAllScores() {
+  try {
+    const result = await window.storage.list('score:', SHARED);
+    if (!result || !result.keys || result.keys.length === 0) return {};
+    const scores = {};
+    for (const key of result.keys) {
+      try {
+        const r = await window.storage.get(key, SHARED);
+        if (r && r.value) {
+          const d = JSON.parse(r.value);
+          scores[d.name] = d.score;
+        }
+      } catch(e) {}
+    }
+    return scores;
+  } catch(e) { return {}; }
+}
 
+// ── SCOREBOARD ──
+async function syncAndRender() {
+  const scores = await loadAllScores();
+  const panel = document.getElementById('scoreboard-panel');
+  const list = document.getElementById('scoreboard-list');
+  if (!list) return;
+  const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  if (entries.length === 0) { panel.style.display = 'none'; return; }
+  panel.style.display = 'block';
+  list.innerHTML = entries.map(([name, pts], i) => `
+    <div class="score-row ${i===0 && pts>0 ? 'leader':''}">
+      <span class="rank">${['🥇','🥈','🥉'][i] || (i+1)+'.'}</span>
+      <span class="sname ${name===playerName?'you':''}">${name}${name===playerName?' (jij)':''}</span>
+      <div class="progress-mini"><div class="progress-mini-fill" style="width:${Math.round((pts/questions.length)*100)}%"></div></div>
+      <span class="spts">${pts}</span>
+    </div>`).join('');
+  return scores;
+}
+
+// ── NAME SCREEN ──
+function showNameScreen() {
+  document.getElementById('scoreboard-panel').style.display = 'none';
+  const card = document.getElementById('card');
+  card.innerHTML = `
+    <div class="name-screen">
+      <div style="font-size:48px;margin-bottom:12px">👋</div>
+      <h2>Wie ben jij?</h2>
+      <p>Vul je naam in om te beginnen.<br>Je score verschijnt live in het scorebord voor iedereen!</p>
+      <input class="name-input" id="name-input" type="text" placeholder="Jouw naam..." maxlength="20" autocomplete="off"/>
+      <button class="start-btn" onclick="startQuiz()">Start de quiz 🎯</button>
+    </div>`;
+  const inp = document.getElementById('name-input');
+  inp.focus();
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') startQuiz(); });
+}
+
+// ── START ──
+window.startQuiz = async function() {
+  const inp = document.getElementById('name-input');
+  const name = inp.value.trim();
+  if (!name) { inp.style.borderColor = 'var(--red)'; inp.placeholder = 'Vul je naam in!'; return; }
+  playerName = name;
+  playerScore = 0;
+  current = 0;
+  answered = false;
+  await saveScore(playerName, 0);
+  if (syncInterval) clearInterval(syncInterval);
+  syncInterval = setInterval(syncAndRender, 3000);
+  await syncAndRender();
+  renderQuestion();
+};
+
+// ── QUESTION ──
+function renderQuestion() {
+  if (current >= questions.length) { showResult(); return; }
   const q = questions[current];
   const pct = (current / questions.length) * 100;
-  card.innerHTML = `
+  document.getElementById('card').innerHTML = `
     <div class="progress-meta">
       <span class="qnum">Vraag ${current+1} / ${questions.length}</span>
       <span class="cat-tag">${q.cat}</span>
@@ -612,70 +464,93 @@ function render() {
     <div class="options">
       ${q.options.map((opt,i) => `
         <button class="opt-btn" id="opt${i}" onclick="selectAnswer(${i})">
-          <span class="opt-letter">${["A","B","C","D"][i]}</span>
-          ${opt}
-        </button>`).join("")}
+          <span class="opt-letter">${['A','B','C','D'][i]}</span>${opt}
+        </button>`).join('')}
     </div>
     <div class="reveal-box" id="reveal"><strong>💡 Weetje:</strong> ${q.fun}</div>
-    <div class="score-section" id="score-section">
-      <p>🎯 Wie had het goed? Klik op de namen:</p>
-      <div class="score-players">
-        ${players.map(p => `<button class="score-player-btn" id="sp_${p}" onclick="togglePlayer('${p}')">${p}</button>`).join("")}
-      </div>
-    </div>
     <div class="next-wrap" id="next-wrap">
-      <button class="next-btn" onclick="next()">
-        ${current+1 >= questions.length ? "Bekijk Uitslag 🏆" : "Volgende vraag →"}
+      <span class="score-badge">⭐ ${playerScore} / ${questions.length}</span>
+      <button class="next-btn" onclick="nextQuestion()">
+        ${current+1 >= questions.length ? 'Bekijk uitslag 🏆' : 'Volgende →'}
       </button>
     </div>`;
 }
 
-window.selectAnswer = function(i) {
+window.selectAnswer = async function(i) {
   if (answered) return;
   answered = true;
-  selectedForPoints = [];
   const q = questions[current];
+  if (i === q.answer) playerScore++;
   for (let j = 0; j < q.options.length; j++) {
-    const btn = document.getElementById("opt"+j);
+    const btn = document.getElementById('opt'+j);
     btn.disabled = true;
-    if (j === q.answer) btn.classList.add("correct");
-    else if (j === i) btn.classList.add("wrong");
+    if (j === q.answer) btn.classList.add('correct');
+    else if (j === i) btn.classList.add('wrong');
   }
-  document.getElementById("reveal").classList.add("show");
-  document.getElementById("score-section").classList.add("show");
-  document.getElementById("next-wrap").classList.add("show");
+  await saveScore(playerName, playerScore);
+  await syncAndRender();
+  document.getElementById('reveal').classList.add('show');
+  document.getElementById('next-wrap').classList.add('show');
 };
 
-window.togglePlayer = function(name) {
-  const btn = document.getElementById("sp_"+name);
-  if (selectedForPoints.includes(name)) {
-    selectedForPoints = selectedForPoints.filter(p => p !== name);
-    btn.classList.remove("selected");
-    scores[name] = Math.max(0, scores[name] - 1);
-  } else {
-    selectedForPoints.push(name);
-    btn.classList.add("selected");
-    scores[name]++;
-  }
-  renderScoreboard();
-};
-
-window.next = function() {
+window.nextQuestion = function() {
   current++;
   answered = false;
-  selectedForPoints = [];
-  render();
+  renderQuestion();
 };
 
-window.restart = function() {
+// ── RESULT ──
+async function showResult() {
+  if (syncInterval) clearInterval(syncInterval);
+  await saveScore(playerName, playerScore);
+  const scores = await loadAllScores();
+  const entries = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+  const top3 = entries.slice(0,3);
+  const podiumOrder = [top3[1], top3[0], top3[2]].filter(Boolean);
+
+  document.getElementById('card').innerHTML = `
+    <div class="result">
+      <div class="trophy">🏆</div>
+      <h2>Quiz Voltooid!</h2>
+      <p class="subtitle">Goed gedaan, ${playerName}!</p>
+      <div class="your-score-box">
+        <p>Jouw score</p>
+        <span class="big">${playerScore} / ${questions.length}</span>
+        <div class="label">${getGrade(playerScore)}</div>
+      </div>
+      ${top3.length >= 2 ? `
+      <div class="podium">
+        ${podiumOrder.map(([name,pts],i) => `
+          <div class="podium-item">
+            <div class="podium-block">${['🥈','🥇','🥉'][i]}</div>
+            <div class="podium-name">${name}</div>
+            <div class="podium-pts">${pts} pt</div>
+          </div>`).join('')}
+      </div>` : ''}
+      <div class="full-ranking">
+        ${entries.map(([name,pts],i) => `
+          <div class="rank-row">
+            <span class="rrank">${i+1}.</span>
+            <span class="rname ${name===playerName?'you':''}">${name}${name===playerName?' ★':''}</span>
+            <span class="rpts">${pts} pt</span>
+          </div>`).join('')}
+      </div>
+      <button class="play-again-btn" onclick="playAgain()">🔄 Opnieuw spelen</button>
+    </div>`;
+}
+
+window.playAgain = async function() {
+  try { await window.storage.delete('score:' + playerName, SHARED); } catch(e) {}
+  playerName = '';
+  playerScore = 0;
   current = 0;
   answered = false;
-  selectedForPoints = [];
-  players.forEach(p => scores[p] = 0);
-  render();
+  if (syncInterval) clearInterval(syncInterval);
+  showNameScreen();
 };
 
-render();
+// ── INIT ──
+showNameScreen();
 </script>
 </body>
 </html>
