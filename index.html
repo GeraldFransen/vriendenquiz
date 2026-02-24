@@ -145,7 +145,7 @@
 const JSONBIN_KEY = '$2a$10$8d1DgGLP6FyNxoFuJOTPROYi8dHVV1O34OEImt3y1xxIHdc.DAo3.';
 const BIN_BASE   = 'https://api.jsonbin.io/v3/b';
 const ADMIN_PW   = 'Vriendenquiz2026';
-let BIN_ID = localStorage.getItem('vwq_bin_id') || null;
+let BIN_ID = '699dd08843b1c97be99a0bcb';
 
 let playerName = '', current = 0, answered = false, playerScore = 0, syncInterval = null;
 
@@ -200,22 +200,11 @@ async function setData(data) {
   // JSONBin does not allow empty objects — always keep a placeholder key
   const toSave = Object.keys(data).length === 0 ? { __empty: true } : data;
   try {
-    if (!BIN_ID) {
-      const r = await fetch(BIN_BASE, {
-        method:'POST',
-        headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY,'X-Bin-Name':'vriendenquiz','X-Bin-Private':'false'},
-        body: JSON.stringify(toSave)
-      });
-      const j = await r.json();
-      BIN_ID = j.metadata.id;
-      localStorage.setItem('vwq_bin_id', BIN_ID);
-    } else {
-      await fetch(`${BIN_BASE}/${BIN_ID}`, {
-        method:'PUT',
-        headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},
-        body: JSON.stringify(toSave)
-      });
-    }
+    await fetch(`${BIN_BASE}/${BIN_ID}`, {
+      method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},
+      body: JSON.stringify(toSave)
+    });
   } catch(e) {}
 }
 
